@@ -2,13 +2,6 @@ import json
 
 
 def lca(a, b):
-    """
-    Finds the Lowest-Common-Ancestor of 2 nodes in a binary tree.
-    :param a: index of the first node.
-    :param b: index of the second node.
-    :return: the index of the LCA of the nodes.
-    """
-
     while a != b:
         if a > b:
             a = (a-1) // 2
@@ -20,10 +13,10 @@ def lca(a, b):
 
 if __name__ == '__main__':
     with open('tree.txt', 'r') as f:
-        tree = tree_file.read()
+        tree = f.read()
 
     with open('pairs.txt', 'r') as f:
-        pairs = json.load(pairs_file)
+        pairs = json.load(f)
 
     flag = ''.join((tree[lca(pair[0], pair[1])] for pair in pairs))
     print("The flag is:", flag)
