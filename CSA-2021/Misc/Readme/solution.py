@@ -10,17 +10,15 @@ FLAG_PATTERN = "hey_that_is_the_great_puzzle"
 
 def get_chars_dict(normal_words, encoded_words):
     res = dict()
-    for c in set(FLAG_PATTERN):
-        if c in res:
-            continue
-        res[c] = set(c)
-        if c != '_':
-            for i in range(len(normal_words)):
-                for j in range(len(normal_words[i])):
-                    if normal_words[i][j] == c and j < len(encoded_words[i]):
-                        res[c].add(encoded_words[i][j])
+    for c in (set(FLAG_PATTERN) - {'_'}):
+        res[c] = set()
+        for i in range(len(normal_words)):
+            for j in range(len(normal_words[i])):
+                if normal_words[i][j] == c and j < len(encoded_words[i]):
+                    res[c].add(encoded_words[i][j])
         res[c] = list(res[c])
-    res['z'].append('Z')
+    res['z'] = ['z', 'Z']
+    res['_'] = ['_']
     return res
 
 
