@@ -8,6 +8,9 @@ EXCLUDED_CHAR = 'J'
 
 
 def grids_to_dicts(grids):
+    """
+    Converts each grid to a dict and returns a list with all dicts.
+    """
     return [{grid[i][j]: grid[(i - 1) % GRID_SIZE][(j - 1) % GRID_SIZE] for j in range(GRID_SIZE)
              for i in range(GRID_SIZE)} for grid in grids]
 
