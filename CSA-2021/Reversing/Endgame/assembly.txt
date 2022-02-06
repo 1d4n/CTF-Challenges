@@ -1,0 +1,8 @@
+Thanos, Endgame -> "Avengers Assemble"
+
+AB = add
+BA = sub
+CD = mul
+DC = div
+
+registers: 1A, 1B, ..., 1F
